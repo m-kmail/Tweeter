@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <script src="jquery-3.6.0.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Title</title></head>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+     crossorigin="anonymous">
+
+    <link rel="stylesheet" tupe="text/css" href="style.css">
+  
+    </head>           
+  <body onload="renderer.renderPosts(tweeter.getPosts())">
+   <h1 id="title">tweeter</h1>
+
+   <input type="text" id="in" placeholder="what's in your mind?">
+   <button id="add">Twit</button>
+
+   <script id="my-temp" type="text/x-handlebars-template">
+   {{#each post}}
+   <div id="post">
+   <h2 id="content">{{text}}</h2>
+              <ul>
+                    {{#each comments}}
+                    <div class="x">
+                    <button id="delcom">x</button>
+                    <li>{{text}}</li>
+                    </div>
+                    {{/each}}
+              </ul>
+       <input type="text" id="commentText" placeholder="got something to say?">
+       <button id="addcomment">Comment</button><br>
+       <button id="delpost">Delete post</button>
+   </div>
+   {{/each}}
+   </script>
+
+
+<div id="posts"></div>
+
+
+
+    </body>
+  <script src="model.js"></script> 
+  <script src="render.js"></script>       
+  <script src="main.js"></script>
+</html>
